@@ -21,6 +21,8 @@ filetype off
 syntax on
 colorscheme solarized
 let g:airline_theme='solarized'
+
+" Enable powerline fonts.
 let g:airline_powerline_fonts=1
 " For plug-ins to load corectly.
 filetype plugin indent on
@@ -113,4 +115,6 @@ nnoremap <C-l> <C-w>l
 "NERDTree switch.
 map <F1> :NERDTreeToggle<CR>
 
+" Close vim if only NERDTree open.
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
